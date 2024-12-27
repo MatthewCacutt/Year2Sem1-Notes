@@ -196,8 +196,13 @@ y(x)&=\frac{1}{EI}\int\theta(x)dx=\frac{1}{EI}\left(\frac{Px^3}{12EI}-\frac{P}{6
 $$
  We can use this to solve for $c_1$ and $c_2$, and calculate $\theta_{max}$ and $y_{max}$. 
 ## Superposition
+The principle of superposition states that for any complex loading system made up of multiple distributed and/or point loads, the deflection that the beam undergoes is equal to the sum of the deflection of its parts.
 
-## BMDs
+This means that if a beam has a single UDL (uniformly distributed load) and a single point load, the deflection of the beam will be the sum of the deflection of a beam with only the UDL and a beam with only the point load. This helps to find much more complicated deflection patterns using common deflection equations.
+### Moment Area Method
+
+### Castigliano's Theorem
+### Bending Moment Diagrams
 
 # Stress Transformation
 ## Mohr's Circle

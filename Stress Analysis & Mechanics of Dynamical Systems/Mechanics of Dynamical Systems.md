@@ -87,11 +87,114 @@ $$
 v^2=v_0^2+2a_c(s-s_0)
 $$
 
-## Projectiles
-
+#### Erratic Motion
+When the motion of a particle is erratic, its position, velocity, and acceleration will need to be described by a series of functions. For this reason, graphs are useful in describing motion.
+The slope of a s-t graph is the velocity of the particle over time.
+The slope of a v-t graph is the acceleration of the particle over time.
+The area under an a-t graph gives the velocity over time.
+The area under a v-t graph gives displacement over time.
 ## Curvilinear Motion
+Curvilinear motion occurs when a particle moves along a curved path. This is often in three dimensions.
+
+The position of a particle on a space curve defined by s(t) can be measured from a fixed point $O$ and represented by a position vector $\mathbf{r}(t)$. When the particle moves along the curve s(t) by some amount $\Delta s$, it has a new position such that $\Delta \bf{r} = \bf{r}' - \bf{r}$. The change in position $\Delta \bf{r}$ is the displacement of the particle found using vector subtraction.
+
+Note that $s$ represents the arc length and when the position of the particle changes, its straight line displacement $\mathbf{r}$ will always be shorter than the distance travelled along the curve $s$. In essence, $\mathbf{r}$ forms the chord of $s$.
+
+If $\Delta \bf{r}$ occurs over a time interval $\Delta t$, the average velocity of the particle is
+$$
+\mathbf{v}_{avg}=\frac{\Delta\mathbf{r}}{\Delta t}
+$$
+Note that in this case $\mathbf{v}_{avg}$ is also a vector. The instantaneous velocity is given by
+$$
+\mathbf{v}=\frac{d\mathbf{r}}{dt}
+$$
+Because we are taking the limit as the distance between two points on a curve goes to zero, the direction of the velocity vector will be tangent to the curve. Over a small enough time interval, the change in displacement and change in distance along the curve are indistinguishable besides the direction included in the displacement vector. Therefore speed can be obtained by
+$$
+v=\frac{ds}{dt}=\frac{|d\mathbf{r}|}{dt}
+$$
+A change in velocity $\mathbf{v}$ between two points in time such that $\Delta\mathbf{v}=\mathbf{v}'-\mathbf{v}$ can yield an average acceleration by
+$$
+\mathbf{a}_{avg}=\frac{\Delta\mathbf{v}}{\Delta t}
+$$
+Note that in this case $\mathbf{a}_{avg}$ is also a vector. As the time between a change in velocity goes to zero, we obtain the instantaneous acceleration
+$$
+\mathbf{a}=\frac{d\mathbf{v}}{dt}
+$$
+Alternatively
+$$
+\mathbf{a}=\frac{d^2\mathbf{r}}{dt^2}
+$$
+By placing the velocity vectors as arrows on the fixed point $O$, and extending them to points on the curve we create a *hodograph*. An acceleration vector typically acts tangent to the hodograph and is not tangent to the path of motion.
+
+### Rectangular Components
+Particles can also be described along a path by $x$, $y$, and $z$ components such that
+$$
+\mathbf{r}=x\mathbf{i}+y\mathbf{j}+z\mathbf{k}
+$$
+When the particle moves, each component will be a function of time such that $x=x(t)$, $y=y(t)$, and $z=z(t)$ leading to $\mathbf{r}=\mathbf{r}(t)$.
+The magnitude of the position vector can be found using the Pythagorean theorem.
+$$
+r=\sqrt{x^2+y^2+z^2}
+$$
+The direction of $\mathbf{r}$ is given by the unit vector $$\mathbf{u}_r=\mathbf{\hat{r}}=\frac{\mathbf{r}}{r}$$
+The time derivative of the position vector yield the velocity. Hence, by the sum rule of calculus,
+$$
+\mathbf{v}=\frac{d\mathbf{r}}{dt}=\frac{d}{dt}x\mathbf{i}+\frac{d}{dt}y\mathbf{j}+\frac{d}{dt}z\mathbf{k}
+$$
+Here, the product rule must be used
+$$
+\frac{d}{dt}x\mathbf{i}=\frac{dx}{dt}\mathbf{i}+\frac{d\mathbf{i}}{dt}x
+$$
+But since $\mathbf{i}$ does not change with time, $\frac{d\mathbf{i}}{dt}=0$
+Leading to
+$$
+\mathbf{v}=\frac{dx}{dt}\mathbf{i}+\frac{dy}{dt}\mathbf{j}+\frac{dz}{dt}\mathbf{k}
+$$
+And since the derivative of the $x$ position function is the $x$ velocity function and so on,
+$$
+\mathbf{v}=v_x\mathbf{i}+v_y\mathbf{j}+v_z\mathbf{k}
+$$
+The velocity vector has a magnitude given by the Pythagorean theorem
+$$
+v=\sqrt{v_x^2+v_y^2+v_z^2}
+$$
+and a direction given by the unit vector
+$$
+u_\mathbf{v}=\mathbf{\hat{v}}=\frac{\mathbf{v}}{v}
+$$
+which is always tangent to the path of motion.
+
+Likewise, the acceleration of a particle is obtained by taking the time derivative of the velocity leading to
+$$
+\mathbf{a}=\frac{d\mathbf{v}}{dt}=a_x\mathbf{i}+a_y\mathbf{j}+a_z\mathbf{k}
+$$
+where
+$$
+\begin{align}
+a_n=\frac{dv_n}{dt}=\frac{d^2n}{dt^2}
+\end{align}
+$$
+for each component.
+The acceleration of the particle has a magnitude given by the Pythagorean theorem
+$$
+a=\sqrt{a_x^2+a_y^2+a_z^2}
+$$
+and a direction given by the unit vector
+$$
+u_\mathbf{a}=\mathbf{\hat{a}}=\frac{\mathbf{a}}{a}
+$$
+which is not tangent to the path of motion.
+
+### Normal & Tangential Components
+
+### Cylindrical Components
+
+### Projectile Motion
 
 ## Absolute Dependent & Relative Motion
+### Analysis of Two Particles
+## Translating Axes
+
 
 # Kinetics
 

@@ -189,8 +189,90 @@ For a known path, the motion of a particle can be described using two axes, one 
 
 For a particle at position $s$ along a curve measure from point $O$ the $t$ axis is tangent to the curve at the particle and positive in the direction of increasing $s$. The positive direction has unit vector $\mathbf{u}_t$. The path of motion can be segmented into infinitesimally small segments of length $ds$ whereby each segment is the arc of a circle with radius of curvature $\rho$ and centre of curvature $O'$. The normal axis is perpendicular to the tangential axis and positive in the direction towards the centre of curvature for the segment on which the particle lies. In effect, the direction of the positive normal vector is always on the concave side of the curve of motion with unit vector $\mathbf{u}_n$.
 
-### Cylindrical Components
+The velocity of a particle with these components has a direction which is always tangent to the path and a magnitude which is the time derivative of the path function $s(t)$. Therefore
+$$
+\mathbf{v}=v\mathbf{u}_t=\frac{d}{dt}s(t)\mathbf{u}_t
+$$
+The acceleration of the particle has a magnitude equal to the time derivative of the tangential component of velocity and direction equal to the time derivative of the normal component of velocity.
+$$
+\mathbf{a}=\frac{d\mathbf{v}}{dt} = \mathbf{u}_t\frac{d\mathbf{v}}{dt} + v\frac{d\mathbf{u}_t}{dt}
+$$
+While the computation can become tricky, the key takeaway is that acceleration can be decomposed into two components
+$$
+\mathbf{a}=a_t\mathbf{u}_t+a_n\mathbf{u}_n
+$$
+such that
+$$
+a_n=\frac{v^2}{\rho}
+$$
+Since the tangential and normal unit vectors are always perpendicular to each other, they form a right triangle to give the actual magnitude of acceleration such that
+$$
+a=\sqrt{a_t^2+a_n^2}
+$$
+### Polar Components
+If the motion of a particle follows a cylindrical path, the location of the particle can be specified using a radial coordinate $r$ and a transverse coordinate $\theta$. 
 
+First, a fixed origin is defined $O$. Then the particle's position is described as a distance $r$ away from $O$ and at an angle to the ground plane or fixed reference line of $\theta$. The angle $\theta$ is typically measured in radians. 
+
+To define the directions of the radial and transverse components, we use two unit vectors $\mathbf{u}_r$ and $\mathbf{u}_{\theta}$ such that $\mathbf{u}_r$ is positive in the direction of increasing $r$ assuming a fixed angle $\theta$ and $\mathbf{u}_\theta$ is positive in the direction of increasing $\theta$ assuming a fixed distance $r$.
+
+The position of the particle is given by the position vector
+$$
+\mathbf{r}=r\mathbf{u}_r
+$$
+The velocity vector is the time derivative of the position vector using the product rule to obtain
+$$
+\mathbf{v}=\frac{d\mathbf{r}}{dt}=\mathbf{u}_r\frac{dr}{dt}+r\frac{d\mathbf{u}_r}{dt}
+$$
+The derivative of the unit vector or direction of the radial component can be computed. Note that since it is a unit vector, it always has length 1. Therefore, a change in time will not yield a change in direction alone. A change in the radial component's magnitude also does not change the direction of the position unit vector. Only a change in angle can bring about a change in the direction of the position vector. Since we are dealing with radial motion, the small angle theorem tells us that for a small change in the angle, this equates to approximately the same change in the radial unit vector acting in the transverse unit vector direction leading to:
+$$
+\frac{d\mathbf{u}_r}{dt}=\lim_{\Delta t \to 0}\frac{\Delta \mathbf{u}_r}{\Delta t}=\lim_{\Delta t \to 0}\frac{\Delta \theta}{\Delta t}\mathbf{u}_\theta
+$$
+or more simply,
+$$
+\frac{d\mathbf{u}_r}{dt}=\frac{d\theta}{dt}\mathbf{u}_\theta
+$$
+By substituting this result back in we find
+
+$$
+\mathbf{v}=\mathbf{u}_rv_r+\mathbf{u}_\theta v_\theta
+$$
+Where
+$$
+v_r=\frac{dr}{dt} \hspace{1cm}v_\theta=r\frac{d\theta}{dt}
+$$
+The magnitude of velocity can be found by using the Pythagorean theorem combining the radial and transverse components of velocity.
+$$
+v=\sqrt{v_r^2+v_\theta^2}=\sqrt{\dot{r}^2+(r\dot{\theta})^2}
+$$
+The direction of velocity is once again tangent to the direction of motion.
+
+Following a similar argument for acceleration leads to
+$$
+\mathbf{a} = a_r\mathbf{u}_r + a_\theta \mathbf{u}_\theta
+$$
+Where
+$$
+a_r=\frac{d^2r}{dt^2}-r\frac{d\theta}{dt}^2 \hspace{1cm}a_\theta=r\frac{d^2\theta}{dt^2}+2\frac{dr}{dt}\frac{d\theta}{dt}
+$$
+Or more simply
+$$
+a_r=\ddot{r}-r\dot{\theta}^2 \hspace{1cm} a_\theta=r\ddot{\theta}+2\dot{r}\dot{\theta}
+$$
+Once again, the magnitude can be found using the Pythagorean theorem
+$$
+a=\sqrt{a_r^2+a_\theta^2}=\sqrt{(\ddot{r}-r\dot{\theta}^2)^2+(r\ddot{\theta}+2\dot{r}\dot{\theta})^2}
+$$
+
+### Cylindrical Components
+In three dimensional space, an additional coordinate is needed and we have three components $r$, $\theta$, and $z$. In this case, the position, velocity, and acceleration vectors are given as
+$$
+\begin{align}
+\mathbf{r}&=r\mathbf{u}_r+z\mathbf{u_z}\\
+\mathbf{v}&=\dot{r}\mathbf{u}_r+r\dot\theta\mathbf{u}_\theta+\dot z\mathbf{u}_z\\
+\mathbf{a}&=(\ddot r-r\dot\theta^2)\mathbf{u}_r+(r\ddot\theta+2\dot r\dot \theta)\mathbf{u}_\theta+\ddot z\mathbf{u}_z
+\end{align}
+$$
 ### Projectile Motion
 When examining free flight motion of projectiles with rectangular components, by neglecting air resistance, only the weight of the projectile causes an acceleration. This acceleration is due to gravity and acts only in the downwards vertical direction meaning by splitting the components of the velocity vectors, the horizontal component(s) have a constant acceleration of 0 meaning they also have a constant velocity, and the vertical component has a constant acceleration of $a_y=g=9.81m/s^2$ downwards.
 
@@ -213,10 +295,9 @@ v^2&=v_0^2+2a_c(y-y_0) &\hspace{0.5cm} v^2&=v_{0_x}^2-2g(y-y_0)
 $$
 
 ## Absolute Dependent & Relative Motion
-### Analysis of Two Particles
-## Translating Axes
-
-
+Textual explanation is not sufficient. Please see the following videos
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IudPPGIV5QM?si=0iKD101FuftZnVXP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/opVKNCedkRo?si=nyseQ1sLwyLDi3fz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 # Kinetics
 
 ## Work & Energy

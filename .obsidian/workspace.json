@@ -34,37 +34,9 @@
               "icon": "lucide-file",
               "title": "Mechanics of Dynamical Systems"
             }
-          },
-          {
-            "id": "d752fbd5dcf424ee",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Stress Analysis & Mechanics of Dynamical Systems/Mechanics of Dynamical Systems.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Mechanics of Dynamical Systems"
-            }
-          },
-          {
-            "id": "33bd9f3a86994f9d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Stress Analysis & Mechanics of Dynamical Systems/Stress Analysis.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Stress Analysis"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -218,11 +190,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "d752fbd5dcf424ee",
+  "active": "be275145fde4407b",
   "lastOpenFiles": [
     "Stress Analysis & Mechanics of Dynamical Systems/Stress Analysis.md",
-    "Screenshot 2024-12-26 at 06.25.34.png",
     "Stress Analysis & Mechanics of Dynamical Systems/Mechanics of Dynamical Systems.md",
+    "Screenshot 2024-12-26 at 06.25.34.png",
     "Control Engineering/Mathematics.md",
     "Control Engineering",
     "Stress Analysis & Mechanics of Dynamical Systems",

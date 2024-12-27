@@ -184,12 +184,33 @@ $$
 u_\mathbf{a}=\mathbf{\hat{a}}=\frac{\mathbf{a}}{a}
 $$
 which is not tangent to the path of motion.
-
 ### Normal & Tangential Components
+For a known path, the motion of a particle can be described using two axes, one which is normal to the path and one which is tangent to the path.
+
+For a particle at position $s$ along a curve measure from point $O$ the $t$ axis is tangent to the curve at the particle and positive in the direction of increasing $s$. The positive direction has unit vector $\mathbf{u}_t$. The path of motion can be segmented into infinitesimally small segments of length $ds$ whereby each segment is the arc of a circle with radius of curvature $\rho$ and centre of curvature $O'$. The normal axis is perpendicular to the tangential axis and positive in the direction towards the centre of curvature for the segment on which the particle lies. In effect, the direction of the positive normal vector is always on the concave side of the curve of motion with unit vector $\mathbf{u}_n$.
 
 ### Cylindrical Components
 
 ### Projectile Motion
+When examining free flight motion of projectiles with rectangular components, by neglecting air resistance, only the weight of the projectile causes an acceleration. This acceleration is due to gravity and acts only in the downwards vertical direction meaning by splitting the components of the velocity vectors, the horizontal component(s) have a constant acceleration of 0 meaning they also have a constant velocity, and the vertical component has a constant acceleration of $a_y=g=9.81m/s^2$ downwards.
+
+The equations of motion are therefore modified
+Under horizontal motion:
+$$
+\begin{align}
+v&=v_0+a_ct &\hspace{0.5cm} v_x&=v_{0_x}\\
+x&=x_0+v_0t+\frac{1}{2}a_ct^2 &\hspace{0.5cm} x&=x_0+v_{0_x}t\\
+v^2&=v_0^2+2a_c(x-x_0) &\hspace{0.5cm} v&=v_{0_x}
+\end{align}
+$$
+Under vertical motion:
+$$
+\begin{align}
+v&=v_0+a_ct &\hspace{0.5cm} v_y&=v_{0_y}-gt\\
+y&=y_0+v_0t+\frac{1}{2}a_ct^2 &\hspace{0.5cm} y&=y_0+v_{0_y}t-\frac{1}{2}gt^2\\
+v^2&=v_0^2+2a_c(y-y_0) &\hspace{0.5cm} v^2&=v_{0_x}^2-2g(y-y_0)
+\end{align}
+$$
 
 ## Absolute Dependent & Relative Motion
 ### Analysis of Two Particles

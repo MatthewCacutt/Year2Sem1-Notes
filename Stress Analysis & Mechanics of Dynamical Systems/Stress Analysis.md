@@ -1,3 +1,69 @@
+# Definitions & Equations
+
+***Stress*** is a measure of the amount of pressure or force exerted on a body or material. 
+
+***Normal Stress*** refers to the stress due to axial loading either compressive or tensile. It is denoted by $\sigma$ and calculated by dividing the force or pressure exerted by an axial load by the cross sectional area.
+$$
+\sigma=\frac{P}{A}
+$$
+It is positive when the stress is tensile and negative when it is compressive and has units of $Pa$(scals) or $N/m^2$. Engineering stress uses the original area of a cross section for deformation to simplify calculations despite the cross section having a malleable size due to strain.
+
+***Axial Loads*** are forces applied parallel to the main axis and normal to the surface of a material. For a rod, this is the axis running through the centre longitudinally.
+
+***Strain*** is a measure of the amount of deformation to a body as a result of stress. 
+
+***Normal Strain*** is a measure of a deformation to a body due to *normal stress*. It is denoted by epsilon $\epsilon$, and given by the equation:
+$$
+\epsilon=\frac{\delta}{L}
+$$
+Where $\delta$ is the change in length, and $L$ is the original length of the material. 
+
+***Young's (Elastic) Modulus*** is a material property which defines the ratio between normal material stress and strain within the elastic region of deformation. It is represented by the letter $E$ and given by equation
+$$
+E=\frac{\sigma}{\epsilon}
+$$
+
+***Yield Strength*** is the stress required for a material to enter the plastic region.
+
+***Ultimate Strength*** is the highest value for stress on the stress strain curve.
+
+***Shear Stress*** refers to stress which run parallel to the cross section of a body. 
+- Direct Shear happens when two parts of a single member are subjected to forces or loads in opposite directions (non-axially). This causes a shear stress of the load force divided by the cross sectional area (V is used for shear loads)
+$$
+\text{Direct Shear}=\tau=\frac{V}{A}
+$$
+
+***Shearing Strain*** is the amount by which a body rotates due to shearing stress. 
+
+***Shear Modulus (of Rigidity)*** is the ratio between shear stress and shear strain under elastic deformation such that
+$$
+G=\frac{\tau}{\gamma}
+$$
+
+***Axial Deformation*** $\delta$ is the change in length $L$ of a material with cross section $A$ and Young's modulus $E$ due to axial loading $P$ such that
+$$
+\delta=\frac{PL}{AE}
+$$
+
+***Coefficient of Thermal Expansion*** is a material property which measures how sensitive a material is to deformation caused by temperature change. It is represented by $\alpha$ and used to find the change $\delta$ in length of a material $L$ due to a temperature change $\Delta T$.
+$$
+\delta = \alpha \cdot \Delta T \cdot L
+$$
+
+***Total Axial Deformation*** is the total amount a member will elongate or shorten axially as a result of both temperature change and axial loads. It is given by
+$$
+\delta_{\text{Total}}=\alpha L \Delta T + \frac{PL}{AE}
+$$
+***Poisson's Ratio*** is a material property measuring how much a material deforms laterally as a result of axial, longitudinal strain. 
+$$
+\nu=\frac{\epsilon_{\text{lateral}}}{\epsilon_{\text{longitudinal}}}
+$$
+It usually has values between 0 and 0.5.
+
+***Statically Indeterminate Problems*** are problems where the equilibrium equations are not enough to find reaction or internal forces required for solving problems. 
+
+
+
 # Deflection of Beams
 The equation for the curvature of a beam is given by
 $$
@@ -199,15 +265,15 @@ $$
 The principle of superposition states that for any complex loading system made up of multiple distributed and/or point loads, the deflection that the beam undergoes is equal to the sum of the deflection of its parts.
 
 This means that if a beam has a single UDL (uniformly distributed load) and a single point load, the deflection of the beam will be the sum of the deflection of a beam with only the UDL and a beam with only the point load. This helps to find much more complicated deflection patterns using common deflection equations.
-### Moment Area Method
-
-### Castigliano's Theorem
-### Bending Moment Diagrams
-
 # Stress Transformation
+When stress is caused by coplanar loadings, the 3D stress state element can be analysed using a single plane of the stress element consisting of an $x$ and $y$ normal stress and four shear stresses forming a single shear stress component $\tau_{xy}$ which acts on each of the four faces of the planar element.
+![[Screenshot 2024-12-27 at 16.23.25.png]]
+The orientation of the stress element itself will affect these stresses. Any stress state is comprised of three stresses: two normal stresses ($\sigma_x$ and $\sigma_y$) and a shear stress component ($\tau_{xy}$) in a specific orientation given by an angle $\theta$.
+
 ## Mohr's Circle
 
 
 # Torsion
 
-# Buckling
+# Buckling of Columns
+When a long and slender member is under axial compressive loading (column), it may suddenly deflect laterally (buckling). A buckling column often leads to failure of structure. The maximum axial load a column supports on the verge of buckling is the critical load $P_{cr}$. Any extra load will cause buckling. 

@@ -299,6 +299,63 @@ Textual explanation is not sufficient. Please see the following videos
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IudPPGIV5QM?si=0iKD101FuftZnVXP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/opVKNCedkRo?si=nyseQ1sLwyLDi3fz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 # Kinetics
+## Force & Acceleration
+
+***Newton's Second Law of Motion*** states that when an unbalanced force acts on a body, the body will accelerate in the direction of the force with magnitude proportional to the force.
+$$
+\mathbf{F}=m\mathbf{a}
+$$
+
+The proportionality is determined by the mass of the body $m$. The mass of the body can be thought of as the resistance to a change in velocity, inertia.
+
+***Newton's Law of Gravitational Attraction*** states that for any two bodies there is a gravitational attraction (force $F$) between them which is proportional to their masses ($m_1$ and $m_2$) and a universal gravitational constant ($G=66.73\times10^{-12}m^3/kg\cdot s^2$) and inversely proportional to the square of the distance between them ($r$)
+$$
+F=G\frac{m_1m_2}{r^2}
+$$
+For bodies located very close to a much larger body, the only significant gravitational attraction on the smaller body is that of the large body. For planets, using Earth as an example, mass of the body can be calculated experimentally and the distance between objects on the surface of the earth and the centre of the earth can be considered constant for most cases. As such, this equation simplifies down to
+$$
+W=mg
+$$
+where $m$ is the mass of the body on the surface of Earth and $g$ is the gravitational constant for Earth determined by $g=GM_e/r^2$. We call $W$ weight and, the $g$ value can be calculated experimentally for other large bodies.
+
+## Summation of Forces
+The resultant force from a collection of forces acting on a body can be summed to a single resultant force which is then equal to the mass of the body multiplied by its acceleration due to the forces.
+$$
+\mathbf{F}_R=\sum{\mathbf{F}}=m\mathbf{a}
+$$
+### Rectangular Components
+Since each force is a vector in 2D or 3D space, we can decompose the forces into their directional components using various component descriptions. The first of note is rectangular components where each force is made up of two or three forces in the $x$, $y$, (and $z$) directions.
+Therefore
+$$
+\sum{F_x}\mathbf{i}+\sum{F_y}\mathbf{j}+\sum{F_z}\mathbf{k}=m(a_x\mathbf{i}+a_y\mathbf{j}+a_z\mathbf{k})
+$$
+And further,
+$$
+\begin{align}
+\sum{\mathbf{F}_x}=m\mathbf{a}_x\\
+\sum{\mathbf{F}_y}=m\mathbf{a}_y\\
+\sum{\mathbf{F}_z}=m\mathbf{a}_z\\
+\end{align}
+$$
+### Tangential & Normal Components
+For a body moving along a known, curved path, the components may be split into normal, tangential, and binormal directions. The binormal direction if the third axis which is normal or perpendicular to both the normal and tangential directions. Note that because the body must move along the curved path and the tangential direction always points towards the path, the binormal direction will never have any influence meaning $\sum{\mathbf{F}_b}=0$. Therefore, the following equations hold true:
+$$
+\sum{\mathbf{F}_t\mathbf{u}_t}+\sum{\mathbf{F}_n\mathbf{u}_n}+\sum{\mathbf{F}_b\mathbf{u}_b}=m\mathbf{a}_t+m\mathbf{a}_n
+$$
+$$
+\begin{align}
+\sum{F_t}&=m\mathbf{a}_t\\
+\sum{F_n}&=m\mathbf{a}_n\\
+\sum{F_b}&=0
+\end{align}
+$$
+### Cylindrical Components
+Cylindrical motion also translates from the kinematic principles to kinetics. Here, we have three components, a radial component $r$, a transverse component $\theta$, and a vertical component $z$ such that
+$$
+\sum{\mathbf{F}_r\mathbf{u}_r}+\sum{\mathbf{F}_\theta\mathbf{u}_\theta}+\sum{\mathbf{F}_z\mathbf{u}_z}=m\mathbf{a}_r+m\mathbf{a}_\theta+m\mathbf{a}_z
+$$
+
+## Central Force Motion
 
 ## Work & Energy
 

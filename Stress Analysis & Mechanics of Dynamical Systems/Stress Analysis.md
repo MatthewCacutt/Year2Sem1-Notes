@@ -32,8 +32,6 @@ $$
 $$
 \text{Direct Shear}=\tau=\frac{V}{A}
 $$
-- Torsional Shear
-- Transverse Shear
 
 ***Shearing Strain*** is the amount by which a body rotates due to shearing stress. 
 

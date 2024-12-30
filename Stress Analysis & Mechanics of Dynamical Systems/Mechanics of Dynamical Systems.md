@@ -354,9 +354,6 @@ Cylindrical motion also translates from the kinematic principles to kinetics. He
 $$
 \sum{\mathbf{F}_r\mathbf{u}_r}+\sum{\mathbf{F}_\theta\mathbf{u}_\theta}+\sum{\mathbf{F}_z\mathbf{u}_z}=m\mathbf{a}_r+m\mathbf{a}_\theta+m\mathbf{a}_z
 $$
-
-## Central Force Motion
-
 ## Work & Energy
 
 ## Conservation of Energy

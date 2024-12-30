@@ -32,6 +32,8 @@ $$
 $$
 \text{Direct Shear}=\tau=\frac{V}{A}
 $$
+- Torsional Shear
+- Transverse Shear
 
 ***Shearing Strain*** is the amount by which a body rotates due to shearing stress. 
 
@@ -62,9 +64,21 @@ It usually has values between 0 and 0.5.
 
 ***Statically Indeterminate Problems*** are problems where the equilibrium equations are not enough to find reaction or internal forces required for solving problems. 
 
+***Stress Concentration Factor*** is a property governed by the shape and material of a body. It describes the ratio between maximum stress and average stress such that
+$$
+K=\frac{\sigma_{\text{max}}}{\sigma}
+$$
+Therefore, the maximum stress for a body under the four main types of stress deformation (bending, buckling, torsion, and shear) can be calculated by multiplying the stress concentration factor by the equation for the average stress such as $\sigma_{\text{max}}=K\frac{P}{A}$ for axial loading.
 
+***Maximum Allowable Stress*** is the maximum stress within a member without causing it to fail. 
 
-# Deflection of Beams
+***Factor of Safety*** is a value quantifying how safe a member is under current stress. It is defined as the ratio of the maximum allowable stress to the maximum current stress such that
+$$
+n=\frac{\sigma_{\text{allowable}}}{\sigma_{\text{max}}}
+$$
+The higher the factor of safety, the less likely the member is to fail. A FoS of less than 1 means the member will fail under the stress used in the formula.
+
+# Deflection of Beams (Bending)
 The equation for the curvature of a beam is given by
 $$
 \frac{d^2y}{dx^2}=\frac{M(x)}{EI}
@@ -265,7 +279,7 @@ $$
 The principle of superposition states that for any complex loading system made up of multiple distributed and/or point loads, the deflection that the beam undergoes is equal to the sum of the deflection of its parts.
 
 This means that if a beam has a single UDL (uniformly distributed load) and a single point load, the deflection of the beam will be the sum of the deflection of a beam with only the UDL and a beam with only the point load. This helps to find much more complicated deflection patterns using common deflection equations.
-# Stress Transformation
+# Stress Transformation (Shearing)
 When stress is caused by coplanar loadings, the 3D stress state element can be analysed using a single plane of the stress element consisting of an $x$ and $y$ normal stress and four shear stresses forming a single shear stress component $\tau_{xy}$ which acts on each of the four faces of the planar element.
 ![[Screenshot 2024-12-27 at 16.23.25.png]]
 The orientation of the stress element itself will affect these stresses. Any stress state is comprised of three stresses: two normal stresses ($\sigma_x$ and $\sigma_y$) and a shear stress component ($\tau_{xy}$) in a specific orientation given by an angle $\theta$.
@@ -273,7 +287,7 @@ The orientation of the stress element itself will affect these stresses. Any str
 ## Mohr's Circle
 
 
-# Torsion
+# Twisting (Torsion)
 
-# Buckling of Columns
+# Columns (Buckling)
 When a long and slender member is under axial compressive loading (column), it may suddenly deflect laterally (buckling). A buckling column often leads to failure of structure. The maximum axial load a column supports on the verge of buckling is the critical load $P_{cr}$. Any extra load will cause buckling. 

@@ -121,7 +121,7 @@ The further a fibre is from some central point in the beam, the more it will be 
 A useful property to know about a beam under a load is how much it will deflect or move away from its initial position throughout the beam due to the load. Since we know the equation for the curvature of a beam and we know that the curvature of a beam is the second derivative of the deflection of the beam, we can find an equation for the deflection of the beam as
 
 $$
-y=\int \int \frac{M(x)}{EI}\;dx\;dx
+y=\int\int\frac{M(x)}{EI}\;dx\;dx
 $$
 This is called the Double Integration Method for finding the deflection of beams under loading. By convention, positive values for $y$, imply the beam will deflect downwards under loading.
 
@@ -277,14 +277,57 @@ $$
 The principle of superposition states that for any complex loading system made up of multiple distributed and/or point loads, the deflection that the beam undergoes is equal to the sum of the deflection of its parts.
 
 This means that if a beam has a single UDL (uniformly distributed load) and a single point load, the deflection of the beam will be the sum of the deflection of a beam with only the UDL and a beam with only the point load. This helps to find much more complicated deflection patterns using common deflection equations.
+## Bending Stress
+The average stress caused by bending is given by
+$$
+\sigma=\frac{M(x)}{S}
+$$
+Where $S$ is the section modulus of the member given by
+$$
+\frac{I}{c}
+$$
+Where $c$ is the distance from the neutral axis to the outermost fiber of the beam.
+The maximum bending stress occurs where the bending moment in the beam is at its maximum
+$$
+\sigma_{\text{max}}=\frac{M_{\text{max}}}{S}
+$$
+
 # Stress Transformation (Shearing)
 When stress is caused by coplanar loadings, the 3D stress state element can be analysed using a single plane of the stress element consisting of an $x$ and $y$ normal stress and four shear stresses forming a single shear stress component $\tau_{xy}$ which acts on each of the four faces of the planar element.
 ![[Screenshot 2024-12-27 at 16.23.25.png]]
 The orientation of the stress element itself will affect these stresses. Any stress state is comprised of three stresses: two normal stresses ($\sigma_x$ and $\sigma_y$) and a shear stress component ($\tau_{xy}$) in a specific orientation given by an angle $\theta$.
-
 ## Mohr's Circle
 
+Two points can be plotted on a plane with axes of normal stress ($\sigma$) and shear stress ($\tau$) where the positive shear stress axis points down. These two points are given by
+$$
+\begin{align}
+&p_1=(\sigma_x\;,\;\tau_{xy})\\
+&p_2=(\sigma_y\;,\;-\tau_{xy})
+\end{align}
+$$
+A straight line connecting the two points forms the diameter of a circle. 
+The circle will have midpoint
+$$
+c=\left(\frac{\sigma_x+\sigma_y}{2}\;,\;0\right)
+$$
+The $x$-coordinate of the centre point $\frac{1}{2}(\sigma_x+\sigma_y)$ is the average normal stress $\sigma_{\text{average}}$.
 
+The circle plotted defines all values that the shear and normal stresses can take as a locus. 
+The maximum shear stress $\tau_{\text{max}}$ is therefore equal to the radius of the circle such that
+$$
+\tau_{\max}=r=\sqrt{\left(\frac{\sigma_x-\sigma_y}{2}\right)^2+\tau_{xy}^2}
+
+$$
+using basic geometry and the Pythagorean theorem.
+
+The **Principal Stresses*** are defined as the maximum and minimum normal stresses acting on a stress element. This occurs when shear stress is zero which is where the circle crosses the $\sigma$-axis (horizontal axis) such that
+$$
+\sigma_1,\sigma_2=c_x\pm r=\frac{\sigma_x+\sigma_y}{2}\pm\sqrt{\left(\frac{\sigma_x-\sigma_y}{2}\right)^2+\tau_{xy}^2}
+$$
+The angle to reach the principal stresses is the angle measured counter-clockwise between the line connecting the normal stresses of the stress state ($\sigma_x$ and $\sigma_y$) and the normal stress axis (horizontal or principal axis). Angles in Mohr's circle are doubled so the angle found will need to be divided by 2 to find the real world rotation required for the stress element to reach principal stresses.
+$$
+\phi=2\theta=\tan^{-1}\left(\frac{2\tau_{xy}}{\sigma_x-\sigma_y}\right)
+$$
 # Twisting (Torsion)
 
 # Columns (Buckling)

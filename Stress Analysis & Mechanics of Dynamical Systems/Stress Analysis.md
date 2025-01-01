@@ -269,10 +269,12 @@ Therefore
 $$
 \begin{align}
 \theta(x)&=\frac{1}{EI}\int\frac{P}{2}x - P \left \langle x - \frac{L}{2} \right \rangle dx = \frac{1}{EI}\left(\frac{Px^2}{4}-\frac{P}{2}\left \langle x-\frac{L}{2} \right \rangle^2\right)+c_1\\
-y(x)&=\frac{1}{EI}\int\theta(x)dx=\frac{1}{EI}\left(\frac{Px^3}{12EI}-\frac{P}{6}\left \langle x-\frac{L}{2} \right \rangle^3\right)+c_1x+c_2
+y(x)&=\frac{1}{EI}\int\theta(x)dx=\frac{1}{EI}\left(\frac{Px^3}{12}-\frac{P}{6}\left \langle x-\frac{L}{2} \right \rangle^3\right)+c_1x+c_2
 \end{align}
 $$
  We can use this to solve for $c_1$ and $c_2$, and calculate $\theta_{max}$ and $y_{max}$. 
+
+The general strategy for this method is to sweep across the beam from left to right and for each section under a different load apply Macaulay brackets to section off where loads should apply. For UDL (uniformly distributed loads), the load contributes $$\frac{\omega}{2}\langle x-a\rangle^2$$ to the full bending moment equation. If a UDL does not reach the end of the beam, the beam equation can be modelled as a beam with a UDL going to the end of the beam, then the section of the beam without the UDL can be removed by subtracting another UDL starting from where the actual UDL ends.
 ## Superposition
 The principle of superposition states that for any complex loading system made up of multiple distributed and/or point loads, the deflection that the beam undergoes is equal to the sum of the deflection of its parts.
 
@@ -331,4 +333,126 @@ $$
 # Twisting (Torsion)
 
 # Columns (Buckling)
-When a long and slender member is under axial compressive loading (column), it may suddenly deflect laterally (buckling). A buckling column often leads to failure of structure. The maximum axial load a column supports on the verge of buckling is the critical load $P_{cr}$. Any extra load will cause buckling. 
+When a long and slender member is under axial compressive loading (column), it may suddenly deflect laterally (buckling). A buckling column often leads to failure of structure. The maximum axial load a column supports on the verge of buckling is the critical load $P_{cr}$. Any extra load will cause buckling. Short columns which are not slender will not buckle. Instead, they are liable to crushing. 
+## Slenderness Ratio
+Whether a member is considered a long or short column depends on its slenderness ratio which is the defined as the ratio of the effective length of the column ($L$) to the least radius of gyration ($r$).
+$$
+\lambda=\frac{L}{r}
+$$
+A larger slenderness ratio indicates a beam which is more susceptible to buckling.
+### Radius of Gyration
+The **radius of gyration*** of a member is related to the are moment of inertia $I$ and is similarly a measure of the distribution of a cross sections material away from its centroidal axes. There will likewise be multiple values for the radius of gyration, one for each centroidal axis, and the smallest of these is useful in calculating the slenderness ratio as discussed above. The radius of gyration $r$ is defined as
+$$
+r=\sqrt{\frac{I}{A}}
+$$
+## Critical Load
+As mentioned, the critical load $P_{cr}$ is the maximum load a column can endure before a sudden lateral deformation and bending moment is created in the member. Its equation is dependent on the configuration of the beam and will be discussed shortly. The critical stress $\sigma_{cr}$ is the amount of normal stress a beam is under at and due to the critical load such that
+$$
+\sigma_{cr}=\frac{P_{cr}}{A}
+$$
+To calculate the critical load, we first consider a column which is already under some bending moment due to buckling. The simplest case is a column which is pin supported at both ends. In this case we can think about only a small section of the buckled beam from the top support. Taking positive $y$ to point in the direction of the lateral deflection and positive $x$ to point down the length of the column from point $(0, 0)$ at the top pin support, we can take a distance $y$ that the beam deflects due to the bending moment created by the axial load $P$ and form a bending moment equation for the reactions at the cut of the section such that
+$$
+M=-Py
+$$
+Therefore, we can form the curvature equation
+$$
+\frac{d^2y}{dx^2}=-\frac{Py}{EI}
+$$
+and then form a second order, linear, homogeneous, ordinary differential equation by subtracting $\frac{Py}{EI}$ from both sides. We'll also pull out the constant factor into a variable which will be useful later such that $\frac{P}{EI}=\alpha^2$. Therefore
+$$
+y''+\alpha^2 y=0
+$$
+This is a linear, second order, homogeneous, ordinary differential equation which can be solved by taking an initial guess of $y=e^{rx}$ where $r$ is a constant to be determined.
+$$
+\begin{align}
+y&=e^{rx}\\
+y'&=re^{rx}\\
+y''&=r^2e^{rx}\\
+\therefore r^2e^{rx}+\alpha^2e^{rx}&=0\\
+r^2&=-\alpha^2\\
+r&=\pm\alpha i
+\end{align}
+$$
+Then, we can substitute this value back into our guess for $y$ to find that
+$$
+\begin{align}
+y&=e^{\pm\alpha i x}\\
+y&=c_1e^{\alpha i x}+c_2e^{-\alpha i x}\\
+\end{align}
+$$
+Then, by Euler's Identity
+$$
+\begin{align}
+y&=c_1(\cos(\alpha x)+i\sin(\alpha x))+c_2(\cos(\alpha x)-i\sin(\alpha x))\\
+y&=(c_1+c_2)\cos(\alpha x)+i(c_1-c_2)\sin(\alpha x)\\
+&\text{Let $c_1+c_2=B$ and $i(c_1-c_2)=A$}\\
+\therefore y&=A\sin(\alpha x)+B\cos(\alpha x)
+\end{align}
+$$
+The values of $A$ and $B$ are determined using boundary conditions which are determined by the supports on the column. The simplest case is produced by a column which is pin supported at both ends. In this case, the beam is unable to deflect but may rotate at its extents meaning we have two boundary conditions: at $x=0,\;y=0$ and at $x=L, y=0$.
+Then for the first boundary condition:
+$$
+\begin{align}
+0&=A\sin(0)+B\cos(0)\\
+0&=B
+\end{align}
+$$
+So for a double pin supported column, the cosine component of the general solution for the deflection of the column $y$ has no influence. Then, according to the second boundary condition:
+$$
+0=A\sin(\alpha L)
+$$
+For this equation to hold true, either $A=0$ or $\sin(\alpha L)=0$. 
+If $A$ was zero in this equation, the entire deflection of the column would be zero meaning the member would not deflect. Since we know it must deflect, $\sin(\alpha L)=0$.
+This is true when $\alpha L$ is a multiple of $\pi$. Therefore
+$$
+\alpha L = n\pi
+$$
+Since we only care about the minimum load which causes buckling, the multiple of $\pi$ which causes this will be the smallest non-zero multiple. Therefore $n=1$.
+We can rearrange for $\alpha$ to get $\alpha=\frac\pi L$ and then substitute into the known expression for $\alpha^2=\frac{P}{EI}$ before rearranging for $P$ to find the minimum load $P$ which causes buckling ($P_{cr}$).
+$$
+\begin{align}
+P_{cr}&=\frac{\pi^2EI}{L^2}
+\end{align}
+$$
+This is the Euler Buckling Formula.
+
+### Effective Length 
+The equation derived above only holds true for the simplest case of a column with two pin supported ends. Using different boundary conditions in the derivation can yield equivalent equations for columns with varying support configurations but this can be complicated. A pattern emerges from doing this for several configurations. The length of the column in the equation
+$$
+\begin{align}
+P_{cr}&=\frac{\pi^2EI}{L^2}
+\end{align}
+$$
+can be replaced with a property called the "effective length" ($L_e$) of the column. This length describes the length of the member which is subjected to buckling and is defined at
+$$
+L_e=kL
+$$
+Where $k$ is a constant determined by the supports. 
+The image below shows the most common configurations.
+![[calculating-the-johnson-euler-buckling-load-v0-qWocK-uSIboP2DnZQ3A-CHpgAJEZlPch4AzPG2hT7Eg.webp]]
+
+For a Pinned-Pinned column, as we have already shown, the $k$ value of the column is 1 meaning the effective length and actual length of the column are equal. 
+
+For a Fixed-Free column, the free end of the column under loading can be thought of as a pin support with the fixed support being the midpoint of a large beam mirrored around the fixed support. This would theoretically lead to a Pinned-Pinned column which is double the length of the original support and as expected, the $k$ value for this configuration is 2 so $L_e=2L$.
+
+For a Fixed-Fixed column, is can be shown geometrically that the section of the column which buckles is the middle two quarters of the column such that $L_e=\frac{1}{2}L$.
+
+Finally, for a Fixed-Pinned column, forming the differential equation again with the additional shear and moment reactions created by the fixed support, the $k$ value is roughly 0.7 so $L_e=0.7L$.
+
+### Critical Stress & Factor of Safety
+The critical stress is the normal stress that a column endures $\sigma_{cr}$ due to a load at the critical load $P_{cr}$. This is calculated as
+$$
+\sigma_{cr}=\frac{P_{cr}}{A}
+$$
+The current maximum normal stress for any load $P$ is calculated as
+$$
+\sigma_{\text{max}}=\frac{P}{A}
+$$
+ Recalling the definition for the factor of safety 
+$$
+FoS=n=\frac{\sigma_{\text{allowable}}}{\sigma_{\text{max}}}
+$$
+and noticing that the critical stress is essentially the allowable stress before buckling, we can say,
+$$
+n=\frac{\sigma_{cr}}{\sigma_{\text{max}}}=\frac{\frac{P_{cr}}{A}}{\frac{P}{A}}=\frac{P_{cr}}{P}
+$$

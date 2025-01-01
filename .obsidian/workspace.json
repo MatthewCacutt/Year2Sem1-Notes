@@ -11,13 +11,14 @@
             "id": "be275145fde4407b",
             "type": "leaf",
             "state": {
-              "type": "diff-view",
+              "type": "markdown",
               "state": {
                 "file": "Stress Analysis & Mechanics of Dynamical Systems/Stress Analysis.md",
-                "staged": true
+                "mode": "source",
+                "source": false
               },
-              "icon": "git-pull-request",
-              "title": "Diff View (Stress Analysis)"
+              "icon": "lucide-file",
+              "title": "Stress Analysis"
             }
           }
         ]
@@ -175,8 +176,10 @@
   },
   "active": "be275145fde4407b",
   "lastOpenFiles": [
-    "Stress Analysis & Mechanics of Dynamical Systems/Stress Analysis.md",
+    "calculating-the-johnson-euler-buckling-load-v0-qWocK-uSIboP2DnZQ3A-CHpgAJEZlPch4AzPG2hT7Eg.webp",
+    "Screenshot 2025-01-01 164909.png",
     "Stress Analysis & Mechanics of Dynamical Systems/Mechanics of Dynamical Systems.md",
+    "Stress Analysis & Mechanics of Dynamical Systems/Stress Analysis.md",
     "Screenshot 2024-12-27 at 16.23.25.png",
     "Screenshot 2024-12-26 at 06.25.34.png",
     "Control Engineering/Mathematics.md",

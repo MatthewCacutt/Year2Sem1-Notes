@@ -1,4 +1,4 @@
-# Kinematics vs Kinetics
+  # Kinematics vs Kinetics
 Kinematics is the study of the motion of particles using their position, velocity, and acceleration at a given instant. Kinetics is the study of the motion of particles using the forces involved in its motion.
 # Kinematics
 ## Rectilinear Motion

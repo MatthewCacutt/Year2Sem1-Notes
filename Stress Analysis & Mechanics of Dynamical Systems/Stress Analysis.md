@@ -88,7 +88,18 @@ and $I$ is the area moment of inertia of the cross section of the beam.
 This equation is only true for constant values of $E$ and $I$.
 
 ## Area Moment of Inertia
-The Area Moment of Inertia is a property describing the distribution of a shape's area relative to an axis. The further material is away from the axis through which a beam is bending, the more resistance to bending it will have in that axis though it should be noted that at extremes, problems with buckling and bending may occur in other axes.
+
+### First Moment Area of Inertia $Q$
+The First Moment Area of Inertia, often referred to as the _first moment of area_, is a geometric property that describing the distribution of a shape's area relative to an axis. It is primarily used to locate the centroid of a shape and to evaluate bending stresses in beams.
+
+For a given shape, the first moment of area about an axis is defined as:
+$$
+Q=\int{y}\;dA
+$$
+where $y$ is the perpendicular distance from the axis to an area element $dA$.
+It can simply be thought of as the area of a cross section above and below a defined axis multiplied by the distance to the centroid of the subarea. The largest value for $Q$ occurs when the axis of interest is the neutral axis of the cross section.
+### Second Moment Area of Inertia $I$
+The Second Area Moment of Inertia is a geometric property describing the distribution of a shape's area relative to an axis. The further material is away from the axis through which a beam is bending, the more resistance to bending it will have in that axis though it should be noted that at extremes, problems with buckling and bending may occur in other axes.
 
 The contribution that each unit area has to the area moment of inertia scales quadratically with distance from the bending axis.
 
@@ -330,14 +341,80 @@ The angle to reach the principal stresses is the angle measured counter-clockwis
 $$
 \phi=2\theta=\tan^{-1}\left(\frac{2\tau_{xy}}{\sigma_x-\sigma_y}\right)
 $$
-# Twisting (Torsion)
+## Transverse Shear
+Transverse shear is a type of shear stress which occurs as a result of fibers trying to slide against each other due to a bending moment induced in a beam. Assuming the beam is solid, the fibers cannot slide and shear stress is generated in the beam.![[Screenshot 2025-01-02 075415.png]]
+The resulting stress element is depicted above and is generated using equilibrium equations noting that the element will not be rotating. This tells us that the longitudinal shear stresses must be equal to the vertical shear stress at the cut to prevent rotation of the stress element.
 
+The equation for transverse shear stress is
+$$
+\tau=\frac{VQ}{It}
+$$
+Where $V$ is the shear force applied, $Q$ is the first area moment of inertia, $I$ is the second area moment of inertia, and $t$ is the thickness of the cross section at the point for which the shear stress is being calculated. $Q$ is defined for the area above or below the point at which the shear stress is being calculated such that the line defining the thickness $t$ bounds the area used in calculating $Q$.
+## Thin Walled Pressure Vessels
+Pressure vessels come in two primary forms, cylindrical barrel vessels and spherical dome vessels. These vessels will be subjected to some stress due to the internal pressure of the fluid inside the container. The stress exerted on a vessel comes in three forms though radial stress is often ignored for a thin walled vessel.
+
+![[Screenshot 2025-01-02 111233.png]]
+
+### Hoop Stress
+Hoop stress is the stress that occurs tangentially to the circumference of a cylindrical or spherical vessel. It is the stress trying to pull apart the wall along its circular cross section as the ring increases in diameter as a result of the internal pressure. It is given by
+$$
+\sigma_{\theta}=\frac{pr}{t}
+$$
+Where $p$ is the pressure inside the tank, $r$ is the inner radius of the vessel cross section, and $t$ is the thickness of the wall of the vessel.
+### Longitudinal Stress
+Longitudinal or axial stress is the stress acting along the length of a cylindrical or spherical vessel. It is given by
+$$
+\sigma_{a}=\frac{pr}{2t}
+$$
+For a spherical vessel, the hoop and axial stress are identical and as such the maximum stress is the axial stress. In a cylindrical vessel, there are two principal stresses. One is the hoop stress and the other is the axial stress of the vessel. 
+
+Axial stress is constant throughout the cross section of the vessel wall while axial and hoop stress are dependent on the position in the wall. For thin walled vessels, the ratio between the average radius $\left(\frac{r_i+r_o}{2}\right)$ and the thickness of the walls ($r_o-r_i$) is large leading to the general idea that a vessel is thin walled when
+$$
+\frac{r_o+r_i}{2r_o-2r_i}\geq n
+$$
+where $n$ is a subjective threshold value. Typical values for $n$ range from $10$ to $20$.
+## Thick Walled Vessels
+For a thick walled vessel, there are three primary stresses. These are, as previously discussed, the hoop and longitudinal stresses along with a third radial stress which acts through the wall of the vessel. 
+
+In a thick walled vessel with inner radius $r_i$, outer radius $r_o$, internal pressure $p_i$, and external pressure $p_o$, the equations for the three stresses are given by
+
+Longitudinal / Axial Stress
+$$
+\sigma_L=\frac{p_ir_i^2-p_or_o^2}{r_o^2-r_i^2}
+$$
+Hoop / Circumferential Stress
+$$
+\sigma_{\theta}=\frac{p_ir_i^2-p_or_o^2}{r_o^2-r_i^2}-\frac{r_i^2r_o^2(p_o-p_i)}{r^2(r_o^2-r_i^2)}
+$$
+Radial Stress
+$$
+\sigma_{r}==\frac{p_ir_i^2-p_or_o^2}{r_o^2-r_i^2}+\frac{r_i^2r_o^2(p_o-p_i)}{r^2(r_o^2-r_i^2)}
+$$
+
+Notice that $\sigma_L$ does not depend on the section of the cross section under consideration ($r$). The remaining two stresses can be simplified to generate two equations known as the Lamé equations.
+$$
+\begin{align}
+\sigma_r=A-\frac{B}{r^2}\\
+\sigma_{\theta}=A+\frac{B}{r^2}
+\end{align}
+$$
+By using the boundary conditions for the value of the pressure at a the inner and outer radii, the constants A and B can be calculated.
+
+The equations for the longitudinal and hoop strain are given as
+$$
+\epsilon_L=\frac{1}{E}\left(\sigma_L-\nu\sigma_r-\nu\sigma_\theta\right)
+$$
+and
+$$
+\epsilon_\theta=\frac{1}{E}\left(\sigma_\theta-\nu\sigma_r-\nu\sigma_L\right)
+$$
+respectively where $\nu$ is the Poisson's ratio of the material and E its young's modulus.
 # Columns (Buckling)
 When a long and slender member is under axial compressive loading (column), it may suddenly deflect laterally (buckling). A buckling column often leads to failure of structure. The maximum axial load a column supports on the verge of buckling is the critical load $P_{cr}$. Any extra load will cause buckling. Short columns which are not slender will not buckle. Instead, they are liable to crushing. 
 ## Slenderness Ratio
-Whether a member is considered a long or short column depends on its slenderness ratio which is the defined as the ratio of the effective length of the column ($L$) to the least radius of gyration ($r$).
+Whether a member is considered a long or short column depends on its slenderness ratio which is the defined as the ratio of the effective length of the column ($L_e$) to the least radius of gyration ($r$).
 $$
-\lambda=\frac{L}{r}
+\lambda=\frac{L_e}{r}
 $$
 A larger slenderness ratio indicates a beam which is more susceptible to buckling.
 ### Radius of Gyration
@@ -439,6 +516,14 @@ For a Fixed-Fixed column, is can be shown geometrically that the section of the 
 
 Finally, for a Fixed-Pinned column, forming the differential equation again with the additional shear and moment reactions created by the fixed support, the $k$ value is roughly 0.7 so $L_e=0.7L$.
 
+Recalling our definition for the least radius of gyration
+$$
+r^2=\frac{I}{A}
+$$
+We can solve for $I$ and substitute into the buckling equation to generate a new form of the equation which will lead to the definition of the slenderness ratio in the next section.
+$$
+P_{cr}=\frac{\pi^2EAr^2}{L_e^2}
+$$
 ### Critical Stress & Factor of Safety
 The critical stress is the normal stress that a column endures $\sigma_{cr}$ due to a load at the critical load $P_{cr}$. This is calculated as
 $$
@@ -456,3 +541,32 @@ and noticing that the critical stress is essentially the allowable stress before
 $$
 n=\frac{\sigma_{cr}}{\sigma_{\text{max}}}=\frac{\frac{P_{cr}}{A}}{\frac{P}{A}}=\frac{P_{cr}}{P}
 $$
+If we now jump back to our initial definition for critical stress, we can substitute $P_{cr}$ into the equation and rearrange slightly to obtain
+$$
+\sigma_{cr}=\frac{\pi^2E}{{L_e^2}/{r^2}}
+$$
+This is where the slenderness ratio $\lambda$ comes from and as such, the equation can be rewritten as
+$$
+\sigma_{cr}=\frac{\pi^2E}{\lambda^2}
+$$
+## Rankine-Gordon Equation & Crippling Load
+The Euler equation for buckling fails to take into account the crushing action of columns due to axial loading and assumed only bending. The Rankine-Gordon equation fixes this issue by including the effects of crushing.
+
+The equation starts with the assertion
+$$
+\frac{1}{P_{RG}}=\frac{1}{P_y}+\frac{1}{P_{cr}}
+$$
+Where $P_y=\sigma_y A$ is the load of yield, and $P_{RG}$ is the Rankine-Gordon critical load, also known as the crippling load. By rearranging and substituting in for $P_y$ and $P_{cr}$, we can find a new equation
+$$
+P_{RG}=\frac{\sigma_y A}{1+a\left(\frac{L}{r}\right)^2}
+$$
+$a$ is an experimentally determined constant such that
+$$
+a=\frac{\sigma_y}{\pi^2E}
+$$
+The other value in the equation are
+$\sigma_y$ - Yield Stress
+$A$ - Cross Sectional Area
+$L$ - Length of Column
+$r$ - Radius of Gyration
+$E$ - Young's Modulus
